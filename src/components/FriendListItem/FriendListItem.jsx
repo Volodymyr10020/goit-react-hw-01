@@ -1,13 +1,13 @@
-const FriendListItem = ({ avatar, name, isOnline }) => {
-  const statusStyle = {
-    color: isOnline ? "green" : "red",
-  };
+import styles from "./FriendListItem.module.css";
 
+const FriendListItem = ({ avatar, name, isOnline }) => {
   return (
-    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <img src={avatar} alt={name} width="48" />
-      <p>{name}</p>
-      <p style={statusStyle}>{isOnline ? "Online" : "Offline"}</p>
+    <div className={styles.friendListItem}>
+      <img src={avatar} alt={name} width="48" className={styles.avatar} />
+      <p className={styles.name}>{name}</p>
+      <p className={isOnline ? styles.statusOnline : styles.statusOffline}>
+        {isOnline ? "Online" : "Offline"}
+      </p>
     </div>
   );
 };
